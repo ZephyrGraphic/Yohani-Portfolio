@@ -13,10 +13,11 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Yohani Ade Fadila | Portfolio",
   description: "Portfolio website for Yohani Ade Fadila, a Graphic Design Professional",
+  metadataBase: new URL("https://yohani-ade-fadila.vercel.app"),
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://yohani-portfolio.vercel.app",
+    url: "https://yohani-ade-fadila.vercel.app",
     title: "Yohani Ade Fadila | Portfolio",
     description: "Desainer Grafis Profesional & Administrator",
     siteName: "Yohani Ade Fadila Portfolio",
@@ -35,7 +36,6 @@ export const metadata: Metadata = {
     description: "Desainer Grafis Profesional & Administrator",
     images: ["/images/thumbnail.png"],
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -45,6 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" suppressHydrationWarning>
+      <head>
+        {/* Tambahan meta tags untuk Open Graph dan Twitter */}
+        <meta property="og:image" content="https://yohani-ade-fadila.vercel.app/images/thumbnail.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://yohani-ade-fadila.vercel.app/images/thumbnail.png" />
+      </head>
       <body className={`${jakarta.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <LanguageProvider>{children}</LanguageProvider>
@@ -53,6 +60,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'
